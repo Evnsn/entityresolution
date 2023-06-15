@@ -37,14 +37,15 @@ def fetch_DBLP_ACM():
 
 def fetch_DBLP_SCHOLAR():
     file_list = download_and_extract_zip(url=DBLP_SCHOLAR_DETAILS["url"], checksum=DBLP_SCHOLAR_DETAILS["checksum"])
-    print(file_list)
     dblp_scholar = load_dataframes_from_csv(file_list, "ISO-8859-1")
     delete_directory() # Delet TAMP_PATH
     return dblp_scholar
 
 def fetch_NORTH_CAROLINA_VOTERS_10M():
     file_list = download_and_extract_tar(url=NORTH_CAROLINA_VOTERS_10M_DETAILS["url"], checksum=NORTH_CAROLINA_VOTERS_10M_DETAILS["checksum"])
-    print(file_list)
+
+    # Remove elements that are not paths to a '.csv' file
+    file_list = [file_name for file_name in file_list if file_name.endswith(".csv")]
     dblp_scholar = load_dataframes_from_csv(file_list)
-    # delete_directory() # Delet TAMP_PATH
+    delete_directory() # Delet TAMP_PATH
     return dblp_scholar
