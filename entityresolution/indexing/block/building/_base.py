@@ -28,7 +28,7 @@ class BaseBlocking():
         elif df_b is None:
             return self.deduplication(df_a)
         
-    def record_linkage(df_a:pd.DataFrame, df_b:pd.DataFrame):
+    def record_linkage(self, df_a:pd.DataFrame, df_b:pd.DataFrame):
         # Check input type
         if not (isinstance(df_a, pd.DataFrame) and isinstance(df_b, pd.DataFrame)):
             raise TypeError("Both DataFrames must be a pandas DataFrame.")
@@ -38,7 +38,7 @@ class BaseBlocking():
             raise ValueError("Both DataFrames must have unique indexes.")
 
 
-    def deduplication(df:pd.DataFrame):
+    def deduplication(self, df:pd.DataFrame):
         # Check input type
         if not isinstance(df, pd.DataFrame):
             raise TypeError("Both DataFrames must be a pandas DataFrame.")
