@@ -1,9 +1,9 @@
 pandas
 numpy
 
-jupyterlab
 scikit-learn
 
-# optional lib
+# optional lib (in other words, don't include in final)
+jupyterlab
 tqdm
 ipywidgets

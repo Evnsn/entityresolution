@@ -23,25 +23,28 @@ class BaseBlocking():
         df_b:pd.DataFrame = None,
         return_as:str = "df"
     ):
-        # Check 
-        # if isinstance(df_a, CandidatePairs):
-        #     df_a, df_b = df_a.df_a, df_a.df_b
-        # elif isinstance(df_a, pd.DataFrame):
-        #     if df_b == None:
-        #         df_b = df_a
+        if df_b is not None:
+            return self.record_linkage(df_a, df_b)# Check input type
+        elif df_b is None:
+            return self.deduplication(df_a)
         
-        # if not self._validate_unique_index(df_a):
-        #     raise Exception("'df_a' does not have unique index id's for each record.")
-        # if df_b is not None:
-        #     if not self._validate_unique_index(df_b):
-        #         raise Exception("'df_b' does not have unique index id's for each record.")
-        #     candidate_pairs = self._record_linkage(df_a, df_b, *args, **kwargs)
-        #     if candidate_pairs is None:
-        #         raise Exception("Method '_record_lankage()' has not been implemented yet.")
-        # else:
-        #     candidate_pairs = self._deduplication(df_a, *args, **kwargs)
-        #     if candidate_pairs is None:
-        #         raise Exception("Method '_deduplication()' has not been implemented yet.")
-            
-        return None
+    def record_linkage(df_a:pd.DataFrame, df_b:pd.DataFrame):
+        # Check input type
+        if not (isinstance(df_a, pd.DataFrame) and isinstance(df_b, pd.DataFrame)):
+            raise TypeError("Both DataFrames must be a pandas DataFrame.")
+        
+        # Check unique index
+        if not (df_a.index.is_unique and df_b.index.is_unique):
+            raise ValueError("Both DataFrames must have unique indexes.")
+
+
+    def deduplication(df:pd.DataFrame):
+        # Check input type
+        if not isinstance(df, pd.DataFrame):
+            raise TypeError("Both DataFrames must be a pandas DataFrame.")
+        
+        # Check unique index
+        if not df.index.is_unique:
+            raise ValueError("Both DataFrames must have unique indexes.")
+        
 

@@ -10,15 +10,25 @@ from ._utils import (
     )
 
 """
-    Dataset source: https://dbs.uni-leipzig.de/research/projects/object_matching/benchmark_datasets_for_entity_resolution
-    - Amazone-GoogleProducts
-    - Abt-Buy
-    - Affiliations
-    - Geographical Settlements
-    - Music Brainz 20K
-    - Music Brainz 200K
-    - Music Brainz 2M
-    - North Carolina Voters 5M
+    TODO:
+    - Create brief documentation
+    - Remainding datasets to include
+        - Uni-Leipzig
+                - Amazone-GoogleProducts
+                - Abt-Buy
+                - Affiliations
+                - Geographical Settlements
+                - Music Brainz 200K
+                - Music Brainz 2M
+                - North Carolina Voters 5M
+        - ...
+    - Move meta data? Python module
+    - Remember to credit and License
+    - Update code using `import tempfile`
+
+    Resources:
+    - Dataset source: https://dbs.uni-leipzig.de/research/projects/object_matching/benchmark_datasets_for_entity_resolution
+
 """
 
 DBLP_ACM_DETAILS = {
@@ -68,14 +78,14 @@ def fetch_MUSIC_BRAINZ_20K():
     # file_list = download_and_extract_zip(url=MUSIC_BRAINZ_20M_DETAILS["url"], checksum=MUSIC_BRAINZ_20M_DETAILS["checksum"])
     # df = load_dataframes_from_csv(file_list, encoding="ISO-8859-1")
     df = download_text_file(url=MUSIC_BRAINZ_20K_DETAILS["url"], checksum=MUSIC_BRAINZ_20K_DETAILS["checksum"])
-    # delete_directory() # Delet TAMP_PATH
+    delete_directory() # Delet TAMP_PATH
     return df
 
 def fetch_MUSIC_BRAINZ_20M():
     # file_list = download_and_extract_zip(url=MUSIC_BRAINZ_20M_DETAILS["url"], checksum=MUSIC_BRAINZ_20M_DETAILS["checksum"])
     # df = load_dataframes_from_csv(file_list, encoding="ISO-8859-1")
     df = download_text_file(url=MUSIC_BRAINZ_20M_DETAILS["url"], checksum=MUSIC_BRAINZ_20M_DETAILS["checksum"])
-    # delete_directory() # Delet TAMP_PATH
+    delete_directory() # Delet TAMP_PATH
     return df
 
 def fetch_NORTH_CAROLINA_VOTERS_10M():
