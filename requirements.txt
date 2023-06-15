@@ -3,3 +3,7 @@ numpy
 
 jupyterlab
 scikit-learn
+
+# optional lib
+tqdm
+ipywidgets
