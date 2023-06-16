@@ -26,8 +26,7 @@ def as_dataframe(pairs, df_a, df_b):
 
     # return merged_df
 
-    pairs = np.array(pairs,dtype=int)
-    print(pairs.shape)
+    pairs = np.array(pairs) # dtype=int
 
     # Select the rows based on the pairs of indexes
     unified_df_a = df_a.loc[pairs[:, 0]]

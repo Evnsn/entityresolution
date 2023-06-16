@@ -13,7 +13,7 @@ class BaseBlocking():
         right_suffix:str = "_r"
     ):
         self.left_on = left_on
-        self.right_on = right_on
+        self.right_on = right_on if right_on is not None else left_on
         self.left_suffix = left_suffix
         self.right_suffix = right_suffix
 
