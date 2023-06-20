@@ -7,7 +7,7 @@ class AttributeEquivalenceBlocking(BaseBlocking):
         super().__init__(left_on, right_on, left_suffix, right_suffix)
 
     def deduplication(self, df: pd.DataFrame):
-        super().record_linkage(df)
+        super().deduplication(df)
         df = df.dropna(subset=[self.left_on]).copy() # Remove NaN (allow_nan parameter?)
 
         df["rec"] = df.index

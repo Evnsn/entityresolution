@@ -47,7 +47,7 @@ def as_dataframe(pairs, df_a, df_b):
     return unified_df
 
 def as_list(df):
-    return merged_df.index.tolist()
+    return df.index.tolist()
 
 def as_attributes(pairs, df_a, df_b, attribute = "category"):
     """
