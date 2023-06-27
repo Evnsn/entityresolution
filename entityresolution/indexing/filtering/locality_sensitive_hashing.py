@@ -40,7 +40,7 @@ class MinHashLSHBlocking:
         return df
 
     def _generate_vocabulary(self, df, attribute):
-        vectorizer = CountVectorizer(analyzer='char', ngram_range=(self.qgram_length, self.qgram_length))
+        vectorizer = CountVectorizer(analyzer='char', ngram_range=(self.qgram_length, self.qgram_length), binary=True)
         vectorizer.fit(df[attribute])
         return vectorizer
 
